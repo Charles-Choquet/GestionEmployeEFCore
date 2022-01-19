@@ -36,12 +36,7 @@ namespace GestionEmploye.DataAccess
 
         public void SauvegarderEmploye(Employe employe)
         {
-            var employeUpdate = _context.Employe.Find(employe.Id);
-            employeUpdate.Nom = employe.Nom;
-            employeUpdate.Prenom = employe.Prenom;
-            employeUpdate.DateEmbauche = employe.DateEmbauche;
-            employeUpdate.EstPiloteDeLigne = employe.EstPiloteDeLigne;
-            employeUpdate.RoleId = employe.RoleId;
+            _context.Employe.Find(employe.Id);
             _context.SaveChanges();
         }
     }
