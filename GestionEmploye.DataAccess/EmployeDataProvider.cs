@@ -28,6 +28,7 @@ namespace GestionEmploye.DataAccess
 
         public void AjouterEmploye(Employe newEmploye)
         {
+
             var employe = new Employe { Nom = newEmploye.Nom, Prenom = newEmploye.Prenom, DateEmbauche= newEmploye.DateEmbauche, EstPiloteDeLigne= newEmploye.EstPiloteDeLigne, RoleId=newEmploye.RoleId };
             _context.Employe.Add(employe);
             _context.SaveChanges();
@@ -35,7 +36,13 @@ namespace GestionEmploye.DataAccess
 
         public void SauvegarderEmploye(Employe employe)
         {
-            Debug.WriteLine($"Employé sauvegardé :{employe.Nom}");
+            var employeUpdate = _context.Employe.Find(employe.Id);
+            employeUpdate.Nom = employe.Nom;
+            employeUpdate.Prenom = employe.Prenom;
+            employeUpdate.DateEmbauche = employe.DateEmbauche;
+            employeUpdate.EstPiloteDeLigne = employe.EstPiloteDeLigne;
+            employeUpdate.RoleId = employe.RoleId;
+            _context.SaveChanges();
         }
     }
 }

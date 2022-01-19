@@ -66,10 +66,6 @@
                     HorizontalAlignment="Left"                    
                     Command="{Binding EmployeSelectionne.SauvegarderCmd}"
                     Visibility="{Binding PeutAfficherDetails, Mode=OneWay, Converter={StaticResource MyBooleanToVisibilityConverter}}"/>
-            <Button Grid.Row="9" Content="Ajouter" Margin="10 10 10 30" VerticalAlignment="Bottom"
-                    HorizontalAlignment="Left"                    
-                    Command="{Binding EmployeSelectionne.AjouterCmd}"
-                    Visibility="{Binding PeutAjouter, Mode=OneWay, Converter={StaticResource MyBooleanToVisibilityConverter}}"/>
         </Grid>
 
     </Grid>

@@ -24,7 +24,7 @@ namespace GestionEmploye.ViewModels
             _employe = employe;
             _employeDataProvider = employeDP;
             SauvegarderCmd = new DelegateCommand(Sauvegarder, () => PeutSauvegarder);
-            AjouterCmd = new DelegateCommand(Ajouter, () => PeutSauvegarder);
+            AjouterCmd = new DelegateCommand(Ajouter);
         }       
 
         public string Nom 
