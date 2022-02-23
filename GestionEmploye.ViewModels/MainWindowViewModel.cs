@@ -22,10 +22,12 @@ namespace GestionEmploye.ViewModels
             _employeDataProvider = employeDP;
             Employes = new();
             ChargerCmd = new DelegateCommand(Charger);
+            AjouterCmd = new DelegateCommand(Ajouter);
         }
 
         public ObservableCollection<EmployeViewModel> Employes { get; }
         public DelegateCommand ChargerCmd { get; }
+        public DelegateCommand AjouterCmd { get; set; }
         public ObservableCollection<Role> Roles { get; } = new();
 
         public EmployeViewModel EmployeSelectionne
@@ -45,6 +47,12 @@ namespace GestionEmploye.ViewModels
 
         public bool PeutAfficherDetails => EmployeSelectionne != null;
         public bool PeutAjouter => EmployeSelectionne == null;
+
+        public void Ajouter()
+        {
+            var employe = new Employe { Nom = "", Prenom = "", DateEmbauche = System.DateTimeOffset.Now, EstPiloteDeLigne = false, RoleId = 1 };
+            Employes.Add(new EmployeViewModel(employe, _employeDataProvider));
+        }
 
         public void Charger()
         {

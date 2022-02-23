@@ -25,6 +25,7 @@
 
         <StackPanel Grid.Row="1">
             <Button Content="Rafraichir" Margin="10" Command="{Binding ChargerCmd}" />
+            <Button Content="Ajouter" Margin="10" Command="{Binding AjouterCmd}" />
             <ListView ItemsSource="{Binding Employes}"
                       SelectedItem="{Binding EmployeSelectionne, Mode=TwoWay}"
                       DisplayMemberPath="Nom"/>
@@ -66,6 +67,7 @@
                     HorizontalAlignment="Left"                    
                     Command="{Binding EmployeSelectionne.SauvegarderCmd}"
                     Visibility="{Binding PeutAfficherDetails, Mode=OneWay, Converter={StaticResource MyBooleanToVisibilityConverter}}"/>
+
         </Grid>
 
     </Grid>
